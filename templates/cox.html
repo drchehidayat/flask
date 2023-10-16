@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cox Model</title>
+</head>
+<body>
+    <h1>Cox Model</h1>
+
+    <!-- Add a button to return to the homepage -->
+    <a href="/">
+        <button>Back to Homepage</button>
+    </a>
+
+    <form method="POST" action="/cox">
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br><br>
+
+        <label for="sex">Sex:</label>
+        <select name="sex" required>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select><br><br>
+
+ <label for="dm">Diabetes (DM):</label>
+        <select name="dm" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="who">Diagnosis (WHO):</label>
+        <select name="who" required>
+            <option value="1">Ischeamic stroke</option>
+            <option value="2">Intracerebral Hemorrhage (ICH)</option>
+            <option value="3">SAH</option>
+        </select><br><br>
+
+       <label for="gcs">GCS:</label>
+        <select name="gcs" required>
+            <option value="1">Mild GCS (14-15)</option>
+            <option value="2">Moderate GCS (9-13)</option>
+            <option value="3">Severe GCS (3-8)</option>
+        </select><br><br>
+
+        <label for="nihss">NIHSS:</label>
+        <select name="nihss" required>
+            <option value="1">No stroke symptoms (0)</option>
+            <option value="2">Minor stroke (1-4)</option>
+            <option value="3">Moderate stroke (5-15)</option>
+            <option value="4">Moderate to severe stroke (16-20)</option>
+            <option value="5">Severe stroke (21-42)</option>
+        </select><br><br>
+
+        <label for="mrs">mRS:</label>
+        <select name="mrs" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction Result:</h2>
+    <div>{{ prediction | safe }}</div>
+{% endif %}
+</body>
+</html>
